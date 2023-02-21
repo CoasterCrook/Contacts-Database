@@ -34,8 +34,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoriesId" class="control-label"></label>
-                <input asp-for="CategoriesId" class="form-control" />
-                <span asp-validation-for="CategoriesId" class="text-danger"></span>
+                <select asp-for="CategoriesId" class ="form-control" asp-items="ViewBag.CategoriesId">
+                    <option value="0">Select a Category</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Organization" class="control-label"></label>

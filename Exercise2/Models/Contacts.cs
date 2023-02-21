@@ -14,7 +14,7 @@ namespace Exercise2.Models
         [DisplayName("Email")]
         public string? Email { get; set; }
         [DisplayName("Category")]
-        public int CategoriesId { get; set; }
+        public string? CategoriesId { get; set; }
         public Categories? Categories { get; set; }
         [DisplayName("Organization")]
         public string? Organization { get; set; }

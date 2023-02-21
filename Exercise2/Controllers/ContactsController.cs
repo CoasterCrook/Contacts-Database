@@ -22,9 +22,8 @@ namespace Exercise2.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-              return _context.Contacts != null ? 
-                          View(await _context.Contacts.ToListAsync()) :
-                          Problem("Entity set 'Exercise2Context.Contacts'  is null.");
+            var exercise2Context = _context.Contacts.Include(c => c.Categories);
+            return View(await exercise2Context.ToListAsync());
         }
 
         // GET: Contacts/Details/5
@@ -36,6 +35,7 @@ namespace Exercise2.Controllers
             }
 
             var contacts = await _context.Contacts
+                .Include(c => c.Categories)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (contacts == null)
             {
@@ -48,6 +48,7 @@ namespace Exercise2.Controllers
         // GET: Contacts/Create
         public IActionResult Create()
         {
+            ViewData["CategoriesId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
             return View();
         }
 
@@ -64,6 +65,7 @@ namespace Exercise2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CategoriesId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", contacts.CategoriesId);
             return View(contacts);
         }
 
@@ -80,6 +82,7 @@ namespace Exercise2.Controllers
             {
                 return NotFound();
             }
+            ViewData["CategoriesId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", contacts.CategoriesId);
             return View(contacts);
         }
 
@@ -115,6 +118,7 @@ namespace Exercise2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CategoriesId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", contacts.CategoriesId);
             return View(contacts);
         }
 
@@ -127,6 +131,7 @@ namespace Exercise2.Controllers
             }
 
             var contacts = await _context.Contacts
+                .Include(c => c.Categories)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (contacts == null)
             {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Exercise2.Migrations
 {
     [DbContext(typeof(Exercise2Context))]
-    [Migration("20230221220726_GCMigration")]
-    partial class GCMigration
+    [Migration("20230221222319_MigrationGC")]
+    partial class MigrationGC
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,11 +46,8 @@ namespace Exercise2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CategoriesCategoryId")
+                    b.Property<string>("CategoriesId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -72,7 +69,7 @@ namespace Exercise2.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriesCategoryId");
+                    b.HasIndex("CategoriesId");
 
                     b.ToTable("Contacts");
                 });
@@ -81,7 +78,7 @@ namespace Exercise2.Migrations
                 {
                     b.HasOne("Exercise2.Models.Categories", "Categories")
                         .WithMany()
-                        .HasForeignKey("CategoriesCategoryId");
+                        .HasForeignKey("CategoriesId");
 
                     b.Navigation("Categories");
                 });

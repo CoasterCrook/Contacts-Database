@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Exercise2.Migrations
 {
     /// <inheritdoc />
-    public partial class GCMigration : Migration
+    public partial class MigrationGC : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,8 +33,7 @@ namespace Exercise2.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    CategoriesCategoryId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CategoriesId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Organization = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -42,16 +41,16 @@ namespace Exercise2.Migrations
                 {
                     table.PrimaryKey("PK_Contacts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Contacts_Categories_CategoriesCategoryId",
-                        column: x => x.CategoriesCategoryId,
+                        name: "FK_Contacts_Categories_CategoriesId",
+                        column: x => x.CategoriesId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contacts_CategoriesCategoryId",
+                name: "IX_Contacts_CategoriesId",
                 table: "Contacts",
-                column: "CategoriesCategoryId");
+                column: "CategoriesId");
         }
 
         /// <inheritdoc />
