@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Exercise2.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Exercise2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Exercise2Context") ?? throw new InvalidOperationException("Connection string 'Exercise2Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
