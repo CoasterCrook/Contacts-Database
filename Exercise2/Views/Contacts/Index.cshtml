@@ -31,9 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Organization)
             </th>
-            <th>
+            <!--<th>
                 @Html.DisplayNameFor(model => model.Date)
-            </th>
+            </th>-->
             <th></th>
         </tr>
     </thead>
@@ -58,14 +58,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Organization)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
             <!--<td>
+                @Html.DisplayFor(modelItem => item.Date)
+                </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>-->
+            </td>-->
         </tr>
 }
     </tbody>

@@ -61,6 +61,7 @@ namespace Exercise2.Controllers
         {
             if (ModelState.IsValid)
             {
+                contacts.Date = DateTime.Now;
                 _context.Add(contacts);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
