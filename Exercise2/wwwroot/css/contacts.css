@@ -1,0 +1,16 @@
+﻿
+.notbold {
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 35px;
+}
+
+.upmargin {
+    margin-top: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}

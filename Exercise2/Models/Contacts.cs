@@ -13,8 +13,8 @@ namespace Exercise2.Models
         public string? PhoneNumber { get; set; }
         [DisplayName("Email")]
         public string? Email { get; set; }
-        [DisplayName("Category")]
         public string? CategoriesId { get; set; }
+        [DisplayName("Category")]
         public Categories? Categories { get; set; }
         [DisplayName("Organization")]
         public string? Organization { get; set; }
