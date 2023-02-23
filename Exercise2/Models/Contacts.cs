@@ -5,6 +5,7 @@ namespace Exercise2.Models
 {
     public class Contacts
     {
+        // All inputs are required except Organization (Doesn't have Required annotation above it)
         public int Id { get; set; }
 
         [DisplayName("First Name")]

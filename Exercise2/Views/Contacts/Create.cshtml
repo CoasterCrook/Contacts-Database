@@ -37,7 +37,7 @@
                 <label asp-for="CategoriesId" class="control-label">Category</label>
                 <select asp-for="CategoriesId" class ="form-control" asp-items="ViewBag.CategoriesId">
                     <option value="" hidden disabled selected>Select a Category</option>
-                </select>
+                </select> <!--The 'hidden disable selected' above allows the 'select a category' text to show without it being an extra choosable option, allowing for an easier time creating validation-->
             </div>
             <div class="form-group upmargin">
                 <label asp-for="Organization" class="control-label"></label>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<link rel="stylesheet" href="/css/contacts.css">
+<link rel="stylesheet" href="/css/contacts.css"> <!--This is my custom stylesheet-->
 
 <p class="upmargin">
     <a asp-action="Create">Add Contact</a>
@@ -40,7 +40,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-                <td>
+                <td> <!--Turning first and last names into buttons that route to Details page-->
                     <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.FirstName)</a>
                 </td>
                 <td>

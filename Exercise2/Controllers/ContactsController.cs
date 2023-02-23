@@ -61,7 +61,7 @@ namespace Exercise2.Controllers
         {
             if (ModelState.IsValid)
             {
-                contacts.Date = DateTime.Now;
+                contacts.Date = DateTime.Now; // Sets date to time that the contact was created
                 _context.Add(contacts);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
