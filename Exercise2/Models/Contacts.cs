@@ -17,13 +17,13 @@ namespace Exercise2.Models
 
         [DisplayName("Phone")]
         [Required(ErrorMessage = "Please enter a phone number.")]
+        [Phone]
         public string? PhoneNumber { get; set; }
 
         [DisplayName("Email")]
         [Required(ErrorMessage = "Please enter an email.")]
         public string? Email { get; set; }
 
-    
         [Required(ErrorMessage = "Please choose a category.")]
         public string? CategoriesId { get; set; }
 
