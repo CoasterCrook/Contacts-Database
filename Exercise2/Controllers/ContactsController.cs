@@ -26,6 +26,20 @@ namespace Exercise2.Controllers
             return View(await exercise2Context.ToListAsync());
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var contacts = from c in _context.Contacts
+                         select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                contacts = contacts.Where(l => l.LastName!.Contains(searchString));
+            }
+
+            return View(await contacts.ToListAsync());
+        }
+
         // GET: Contacts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
