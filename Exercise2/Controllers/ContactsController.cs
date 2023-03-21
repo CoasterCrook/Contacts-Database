@@ -26,7 +26,7 @@ namespace Exercise2.Controllers
             return View(await exercise2Context.ToListAsync());
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Index(string searchString)
         {
             var contacts = from c in _context.Contacts
