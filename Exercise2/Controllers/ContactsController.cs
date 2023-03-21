@@ -20,23 +20,28 @@ namespace Exercise2.Controllers
         }
 
         // GET: Contacts
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var exercise2Context = _context.Contacts.Include(c => c.Categories);
             return View(await exercise2Context.ToListAsync());
-        }
+        }*/
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Index(string searchString)
         {
-            var contacts = from c in _context.Contacts
-                         select c;
+            if (_context.Contacts == null)
+            {
+                return Problem("Entity set 'MvcContactsContext.Movie' is null.");
+            }
+
+            var contacts = from c in _context.Contacts.Include(c => c.Categories) 
+                           select c;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 contacts = contacts.Where(l => l.LastName!.Contains(searchString));
             }
-
+            
             return View(await contacts.ToListAsync());
         }
 
